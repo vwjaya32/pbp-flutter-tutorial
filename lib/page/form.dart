@@ -1,5 +1,6 @@
 import 'package:labflutter/main.dart';
 import 'package:flutter/material.dart';
+import 'package:labflutter/page/to_do_page.dart';
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
@@ -24,7 +25,7 @@ class _MyFormPageState extends State<MyFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form'),
+        title: const Text('Form'),
       ),
       drawer: Drawer(
         child: Column(
@@ -47,6 +48,16 @@ class _MyFormPageState extends State<MyFormPage> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const MyFormPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('To Do'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ToDoPage()),
                 );
               },
             ),
@@ -212,10 +223,6 @@ class _MyFormPageState extends State<MyFormPage> {
                   ),
                 ),
                 TextButton(
-                  child: const Text(
-                    "Simpan",
-                    style: TextStyle(color: Colors.white),
-                  ),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
                   ),
@@ -234,8 +241,8 @@ class _MyFormPageState extends State<MyFormPage> {
                         padding: const EdgeInsets.only(top: 20, bottom: 20),
                         shrinkWrap: true,
                         children: <Widget>[
-                          Center(child: const Text('Informasi Data')),
-                          SizedBox(height: 20),
+                          const Center(child: Text('Informasi Data')),
+                          const SizedBox(height: 20),
                           // TODO: Munculkan informasi yang didapat dari form
                           Text('Nama: $_namaLengkap'),
                           Text(
@@ -253,7 +260,7 @@ class _MyFormPageState extends State<MyFormPage> {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            child: Text('Kembali'),
+                            child: const Text('Kembali'),
                           ),
                         ],
                       ),
@@ -263,6 +270,10 @@ class _MyFormPageState extends State<MyFormPage> {
               );
             }
           },
+                  child: const Text(
+                    "Simpan",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ],
             ),
